@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+*.db
+
+# Node / React Native
+node_modules/
+.expo/
+dist/
+
+# OS / Editor
+.vscode/
+.DS_Store
