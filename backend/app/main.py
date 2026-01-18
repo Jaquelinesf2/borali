@@ -1,15 +1,15 @@
 from fastapi import FastAPI
+
+from app.core.config import settings
 from app.routes import health
 
 app = FastAPI(
-    title="Borali API",
-    description="API do aplicativo de transporte estilo Uber",
-    version="0.1.0"
+    title=settings.APP_NAME,
+    description=settings.APP_DESCRIPTION,
+    version=settings.APP_VERSION
 )
-
-API_V1_PREFIX = "/api/v1"
 
 app.include_router(
     health.router,
-    prefix=API_V1_PREFIX
+    prefix=settings.API_V1_PREFIX
 )
