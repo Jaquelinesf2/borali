@@ -1,15 +1,14 @@
 from fastapi import FastAPI
+from app.database import engine, Base
+from app.routes.health import router as health_router
+from app.routes.drivers import router as drivers_router
 
-from app.core.config import settings
-from app.routes import health
+#Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title=settings.APP_NAME,
-    description=settings.APP_DESCRIPTION,
-    version=settings.APP_VERSION
+    title="Borali API",
+    version="0.1.0"
 )
 
-app.include_router(
-    health.router,
-    prefix=settings.API_V1_PREFIX
-)
+app.include_router(health_router)
+app.include_router(drivers_router)
